@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Selamat Ulang Tahun</title> 
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-image: url('background.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-areas: 
+                "top-left top-right"
+                ". button"
+                "bottom-right bottom-left"
+                ". play-button";
+            gap: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative; 
+        }
+
+        .box {
+            width: 150px;
+            height: 200px;
+            border: 2px solid white;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .box-top-right {
+            grid-area: top-right;
+            border: none;
+            border-color: #ff66cc;
+            border-radius: 20px;
+        }
+
+        .box-bottom-left {
+            grid-area: bottom-left;
+            border: none;
+            border-radius: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* Efek mengangkat dari bawah */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .text {
+            color: white;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .text-top-left {
+            grid-area: top-left;
+        }
+
+        .text-bottom-right {
+            grid-area: bottom-right;
+        }
+
+        .text-bottom {
+            grid-area: top-left; /* Berada di kiri atas */
+            font-size: 12px; 
+            line-height: 1.4; 
+        }
+
+        .button {
+            grid-area: button;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: rgb(248, 65, 172);
+            color: rgb(26, 26, 26);
+            margin: auto;
+            display: inline-block;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff0066, #ff66cc);
+            box-shadow: 0px 5px 15px rgba(0, 47, 255, 0.4);
+            border: 2px solid rgb(255, 0, 98);
+        }
+
+        .button:hover {
+            background: linear-gradient(45deg, #ff66cc, #ff0066);
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 47, 255, 0.4);
+        }
+
+        #playButton {
+            grid-area: play-button;
+            display: none;
+            padding: 10px 20px;
+            font-size: 10px;
+            color: #fff;
+            background-color: #ac0a96;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            margin: 20px auto;
+        }
+
+        #playButton:hover {
+            background-color: #b80a75;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-areas:
+                    "top-left"
+                    "top-right"
+                    "button"
+                    "bottom-left"
+                    "bottom-right"
+                    "play-button";
+            }
+
+            .box {
+                width: 120px;
+                height: 160px;
+            }
+
+            .text {
+                font-size: 12px;
+                padding: 10px;
+            }
+
+            .text-bottom {
+                font-size: 10px;
+            }
+
+            .button {
+                font-size: 16px;
+            }
+
+            #playButton {
+                font-size: 8px;
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-areas:
+                    "top-left"
+                    "top-right"
+                    "button"
+                    "bottom-left"
+                    "bottom-right"
+                    "play-button";
+            }
+
+            .box {
+                width: 100px;
+                height: 140px;
+            }
+
+            .box-top-right {
+                transform: rotate(-90deg);
+                margin-left: 28%;
+                width: 50%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            .box-bottom-left {
+                margin-left: 10%;
+                width: 90%;
+                height: 95%;
+                overflow: hidden;
+            }
+
+            .text {
+                font-size: 10px;
+                padding: 8px;
+            }
+
+            .text-bottom {
+                font-size: 8px;
+            }
+
+            .button {
+                font-size: 14px;
+            }
+
+            #playButton {
+                font-size: 6px;
+                padding: 6px 12px;
+            }
+        }
+    </style> 
+</head> 
+<body> 
+    <audio id="background-music" autoplay loop muted>
+        <source src="sempurna.mp3" type="audio/mpeg">
+    </audio>
+    <div class="container"> 
+        <div class="text text-top-left">
+            Haii cintakuu, bocillkuu, sayanggkuu, dedekkuu, pacarrkuu, selamat ulang tahun yang ke-18 yaa cintaakuu. Cudah besar inii perempuanna mamass
+        </div>
+        <div class="box box-top-right"> 
+            <img src="pic 1.jpeg" alt="Image 1"> 
+        </div> 
+        <a href="https://t.me/6289509603739" class="button">BALAS</a>
+        <div class="box box-bottom-left"> 
+            <img src="pic 2.jpeg" alt="Image 2"> 
+        </div>
+        <div class="text text-bottom-right">
+            Tadi adek harusnya cepat pahamnya tapi karena masnya yang ndak paham,adek besoknya mau nanya banyak sama dia, agak cemburu dan sedih mas rasanyaa karena mas belum bisa jadi yang terbaik belum bisa ngajarin dan bantu adek sepenuhnya sampe sampe adek nanya sama cowo, mas merasa kurang pinter jadinya adek sampe nanya dia karena masnya ndak tau apa apa. tapi ndak papa deh walaupun agak sedih dan cemburu yang penting mas sayang sekali sama adekk sayang banget pokoknya. Kita harus selalu bersama sayang,jangan sampe menjauh. mas selalu berusaha berubah jadi lebih baik, dedekk juga yaa? Mamass selalu berusaha pokoknya jadi yang terbaik.
+        </div>
+        <div class="text text-bottom">
+            Haii cintakuu, bocillkuu, sayanggkuu, dedekkuu, pacarrkuu, selamat ulang tahun yang ke-18 yaa cintaakuu. Cudah besar inii perempuanna mamass.
+            Semogaa semua kemauan, cita-cita dan impian adekk bisa terwujud yaa sayangg. Semogaa kitaa bisa terus bersama selamanya sayangg. Kalau bisa, kita wujudkan bareng-bareng yaa sayangg semuaanaa. Selalu berubah menjadi lebih baikk sayangg, kalau ada sesuatu selaluu bilangg sama masnaa apapun itu hal nyaa. Dan kalau ada masalah kita lewati semua cobbaan yang menimpa kita bareng-bareng oteyy sayanggkuu?
+        </div> 
+    </div> 
+
+    <button id="playButton" onclick="playAudio()">Klik untuk mendengar musik</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('background-music');
+            var playButton = document.getElementById('playButton');
+            audio.muted = false; // Menghilangkan mute setelah halaman dimuat
+
+            audio.play().catch(function(error) {
+                console.log('Autoplay was prevented. Show a user interface to allow playback.');
+                playButton.style.display = 'block'; // Tampilkan tombol jika autoplay dicegah
+            });
+        });
+
+        function playAudio() {
+            var audio = document.getElementById('background-music');
+            audio.play();
+            var playButton = document.getElementById('playButton');
+            playButton.style.display = 'none'; // Sembunyikan tombol setelah musik diputar
+        }
+    </script>
+</body>
+</html>
+
+
+
+
